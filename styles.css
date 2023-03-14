@@ -15,20 +15,33 @@
   font-family: 'Work Sans', sans-serif;
 }
 
-.history {
-  color: var(--gray-light);
-  /* display: flex;
-  flex-direction: row;
-  align-items: center; */
-  /* gap: 6px; */
+.calculator {
+  width: 15.190rem;
+  margin: 9.688rem auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.146rem;
 }
 
-.ph-backspace {
+.history {
   font-size: 2rem;
+  color: var(--gray-light);
+}
+
+.history, .results {
+  width: 15.190rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.results span {
+  font-size: 3.5rem;
   color: var(--white);
 }
 
-.total {
+.ph-backspace {
   font-size: 2rem;
   color: var(--white);
 }
@@ -38,6 +51,12 @@
 .third-row, 
 .fourth-row, 
 .fifth-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.125rem;
+  justify-content: center;
+  align-items: center;
+
   color: var(--white);
   font-size: 2rem;
 }
@@ -45,38 +64,67 @@
 i, .special-button {
   background-color: transparent;
   font-weight: 300;
+  cursor: default;
+}
+
+.btn, .special-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 3rem;
+  background-color: var(--gray-dark);
+  border-radius: 6px;
+}
+
+.ph-divide, .ph-x, .ph-minus, .ph-plus, .ph-equals {
+  background-color: var(--blue-medium);
+  transition: background-color .2s ease-in-out;
+}
+
+.ph-divide:hover, .ph-x:hover, .ph-minus:hover, .ph-plus:hover, .ph-equals:hover {
+  background-color: var(--blue-light);
+}
+
+.effect {
+  transition: background-color .2s ease-in-out;
+}
+
+.effect:hover {
+  background: var(--gray-light);
+}
+
+.clear, .ph-backspace, .ph-percent {
+  background-color: var(--gray-light);
+}
+
+.ph-equals {
+  width: 7.125rem;
+}
+
+.hist {
+  background-color: transparent;
 }
 
 @media screen and (max-width: 30.797rem) {
 
-  .container {
-    overflow: hidden;
-  }
-
   .calculator {
-    width: 15.797rem;
-    margin-top: 5rem;
-    margin-left: 0.625rem;
-    margin-right: 0.625rem;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.146rem;
+    width: 29rem;
+    margin-top: 15rem;
+    margin-left: 0.725rem;
+    margin-right: 0.725rem;
   }
 
   .history {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
   }
 
   .results, .history {
-    width: 15.797rem;
-    display: flex;
-    justify-content: flex-end;
+    width: 28rem;
   }
 
   .results span {
-    font-size: 4rem;
+    font-size: 6rem;
   }
 
   .first-row, 
@@ -84,42 +132,19 @@ i, .special-button {
   .third-row, 
   .fourth-row, 
   .fifth-row {
-    display: flex;
-    flex-direction: row;
-    gap: 1.125rem;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    width: 28rem;
+    height: 6rem;
   }
   
   .btn, .special-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3rem;
-    width: 3rem;
-    background-color: var(--gray-dark);
-    border-radius: 6px;
-  }
-
-  .ph-divide, .ph-x, .ph-minus, .ph-plus, .ph-equals {
-    background-color: var(--blue-medium);
-    transition: background-color .2s ease-in-out;
-  }
-
-  .ph-divide:hover, .ph-x:hover, .ph-minus:hover, .ph-plus:hover, .ph-equals:hover {
-    background-color: var(--blue-light);
-  }
-
-  .clear, .ph-backspace, .ph-percent {
-    background-color: var(--gray-light);
+    width: 6rem;
+    height: 6rem;
   }
 
   .ph-equals {
-    width: 7.125rem;
-  }
-
-  .hist {
-    background-color: transparent;
+    width: 13.125rem;
   }
 
 }
