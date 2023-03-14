@@ -1,0 +1,15 @@
+:root {
+  --black-dark: #17171C;
+  --gray-dark: #2E2F38;
+  --gray-light: #4E505F;
+  --blue-medium: #006FFF;
+  --blue-light: #3F92FF;
+  --white: #FFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--black-dark);
+}
