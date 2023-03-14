@@ -74,7 +74,7 @@ i, .special-button {
   height: 3rem;
   width: 3rem;
   background-color: var(--gray-dark);
-  border-radius: 6px;
+  border-radius: 27.5px;
 }
 
 .ph-divide, .ph-x, .ph-minus, .ph-plus, .ph-equals {
