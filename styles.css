@@ -108,6 +108,11 @@ i, .special-button {
 
 @media screen and (max-width: 30.797rem) {
 
+  body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
   .calculator {
     width: 29rem;
     margin-top: 15rem;
