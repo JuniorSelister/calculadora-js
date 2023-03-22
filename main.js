@@ -9,7 +9,7 @@ import { zero,
         seven,
         eight,
         nine,
-        clear, addition, equal} from './calc'
+        clear, addition, minus, multiply, equal, divide, percent} from './calc'
 
 // 1.218,2
 
@@ -81,4 +81,8 @@ nine(document.querySelector('#nine'))
 
 clear(document.querySelector('#clear'))
 addition(document.querySelector('#plus'))
+minus(document.querySelector('#minus'))
+multiply(document.querySelector('#multiply'))
+divide(document.querySelector('#divide'))
+percent(document.querySelector('#percent'))
 equal(document.querySelector('#equal'))

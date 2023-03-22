@@ -3,10 +3,6 @@ let his_calc_A = 0
 let his_calc_B = 0
 
 // symbols
-const subtract = document.querySelector('#minus')
-const multiply = document.querySelector('#multiply')
-const divide = document.querySelector('#divide')
-const percent = document.querySelector('#percent')
 const deleteNumber = document.querySelector('#backspace')
 
 const comma = document.querySelector('#comma')
@@ -137,6 +133,118 @@ export function addition(props) {
   })
 }
 
+export function minus(props) {
+  props.addEventListener('click', () => {
+    let results = document.querySelector('#total_count')
+    const translateValue = String(addValue)
+    let temp = translateValue.split(',').join('')
+    his_calc_A = parseInt(temp)
+
+    let history_calc_A = document.createElement('span')
+    history_calc_A.setAttribute('id', 'history_calc_A')
+    history_calc_A.innerHTML += his_calc_A
+
+    console.log(typeof his_calc_A)
+
+    let icon = document.createElement('i')
+    icon.classList.add('ph')
+    icon.classList.add('ph-minus')
+    icon.classList.add('hist')
+    icon.setAttribute('id', 'symbol')
+    
+    let history = document.querySelector('.history')
+    history.append(history_calc_A)
+    history.append(icon)
+
+    results.innerHTML = ``
+    addValue = []
+  })
+}
+
+export function multiply(props) {
+  props.addEventListener('click', () => {
+    let results = document.querySelector('#total_count')
+    const translateValue = String(addValue)
+    let temp = translateValue.split(',').join('')
+    his_calc_A = parseInt(temp)
+
+    let history_calc_A = document.createElement('span')
+    history_calc_A.setAttribute('id', 'history_calc_A')
+    history_calc_A.innerHTML += his_calc_A
+
+    console.log(typeof his_calc_A)
+
+    let icon = document.createElement('i')
+    icon.classList.add('ph')
+    icon.classList.add('ph-x')
+    icon.classList.add('hist')
+    icon.setAttribute('id', 'symbol')
+    
+    let history = document.querySelector('.history')
+    history.append(history_calc_A)
+    history.append(icon)
+
+    results.innerHTML = ``
+    addValue = []
+  })
+}
+
+export function divide(props) {
+  props.addEventListener('click', () => {
+    let results = document.querySelector('#total_count')
+    const translateValue = String(addValue)
+    let temp = translateValue.split(',').join('')
+    his_calc_A = parseInt(temp)
+
+    let history_calc_A = document.createElement('span')
+    history_calc_A.setAttribute('id', 'history_calc_A')
+    history_calc_A.innerHTML += his_calc_A
+
+    console.log(typeof his_calc_A)
+
+    let icon = document.createElement('i')
+    icon.classList.add('ph')
+    icon.classList.add('ph-divide')
+    icon.classList.add('hist')
+    icon.setAttribute('id', 'symbol')
+    
+    let history = document.querySelector('.history')
+    history.append(history_calc_A)
+    history.append(icon)
+
+    results.innerHTML = ``
+    addValue = []
+  })
+}
+
+export function percent(props) {
+  props.addEventListener('click', () => {
+    let results = document.querySelector('#total_count')
+    const translateValue = String(addValue)
+    let temp = translateValue.split(',').join('')
+    his_calc_A = parseInt(temp)
+
+    let history_calc_A = document.createElement('span')
+    history_calc_A.setAttribute('id', 'history_calc_A')
+    history_calc_A.innerHTML += his_calc_A
+
+    console.log(typeof his_calc_A)
+
+    let icon = document.createElement('i')
+    icon.classList.add('ph')
+    icon.classList.add('ph-percent')
+    icon.classList.add('hist')
+    icon.setAttribute('id', 'symbol')
+    
+    let history = document.querySelector('.history')
+    history.append(history_calc_A)
+    history.append(icon)
+
+    results.innerHTML = his_calc_A / 100
+    addValue = []
+  })
+}
+
 export function equal(props) {
   props.addEventListener('click', () => {
     let results = document.querySelector('#total_count')
@@ -169,10 +277,12 @@ export function equal(props) {
         break;
       case 'ph-divide':
         his_calc_B === 0 ? results.innerHTML = `Not divisible` : results.innerHTML = his_calc_A / his_calc_B
-        break
+        break;
       default:
         results.innerHTML = ``
     }
     addValue = []
+    his_calc_A = 0
+    his_calc_B = 0
   })
 }
