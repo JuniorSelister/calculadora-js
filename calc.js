@@ -2,8 +2,6 @@ let addValue = []
 let his_calc_A = 0
 let his_calc_B = 0
 
-const comma = document.querySelector('#comma')
-
 export function zero(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
@@ -56,7 +54,9 @@ export function six(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
     results.innerHTML += `6`
+
     addValue.push(6)
+    console.log(addValue)
   })
 }
 
@@ -97,6 +97,10 @@ export function deleteNumber(props) {
     let temp = translateValue.split(',').join('')
     results.innerHTML = temp
   })
+}
+
+export function setComma(props) {
+  
 }
 
 export function addition(props) {

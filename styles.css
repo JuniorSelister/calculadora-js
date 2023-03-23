@@ -26,14 +26,20 @@
 }
 
 .history {
+  height: 2.1rem;
   font-size: 2rem;
   color: var(--gray-light);
 }
 
 .history, .results {
+  overflow-x: hidden;
   width: 15.190rem;
   display: flex;
   justify-content: flex-end;
+}
+
+.results {
+  height: 3.5rem;
 }
 
 .results span {
@@ -84,6 +90,10 @@ i, .special-button {
 
 .ph-divide:hover, .ph-x:hover, .ph-minus:hover, .ph-plus:hover, .ph-equals:hover {
   background-color: var(--blue-light);
+}
+
+.hist:hover {
+  background-color: transparent;
 }
 
 .effect {
