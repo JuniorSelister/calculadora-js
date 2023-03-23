@@ -2,16 +2,11 @@ let addValue = []
 let his_calc_A = 0
 let his_calc_B = 0
 
-// symbols
-const deleteNumber = document.querySelector('#backspace')
-
 const comma = document.querySelector('#comma')
-const symbol = document.querySelector('#symbol')
 
 export function zero(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
-    console.log('zero')
     results.innerHTML += `0`
     addValue.push(0)
   })
@@ -20,7 +15,6 @@ export function zero(props) {
 export function one(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
-    console.log('one')
     results.innerHTML += `1`
     addValue.push(1)
   })
@@ -29,7 +23,6 @@ export function one(props) {
 export function two(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
-    console.log('two')
     results.innerHTML += `2`
     addValue.push(2)
   })
@@ -38,7 +31,6 @@ export function two(props) {
 export function three(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
-    console.log('three')
     results.innerHTML += `3`
     addValue.push(3)
   })
@@ -47,7 +39,6 @@ export function three(props) {
 export function four(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
-    console.log('four')
     results.innerHTML += `4`
     addValue.push(4)
   })
@@ -56,7 +47,6 @@ export function four(props) {
 export function five(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
-    console.log('five')
     results.innerHTML += `5`
     addValue.push(5)
   })
@@ -65,7 +55,6 @@ export function five(props) {
 export function six(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
-    console.log('six')
     results.innerHTML += `6`
     addValue.push(6)
   })
@@ -74,7 +63,6 @@ export function six(props) {
 export function seven(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
-    console.log('seven')
     results.innerHTML += `7`
     addValue.push(7)
   })
@@ -82,7 +70,6 @@ export function seven(props) {
 export function eight(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
-    console.log('eight')
     results.innerHTML += `8`
     addValue.push(8)
   })
@@ -91,17 +78,24 @@ export function eight(props) {
 export function nine(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
-    console.log('nine')
     results.innerHTML += `9`
     addValue.push(9)
   })
 }
 
 export function clear(props) {
+  props.addEventListener('click', () => {
+    location.reload()
+  })
+}
+
+export function deleteNumber(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
-    console.log('clear')
-    results.innerHTML = ``
+    addValue.pop()
+    const translateValue = String(addValue)
+    let temp = translateValue.split(',').join('')
+    results.innerHTML = temp
   })
 }
 
@@ -115,8 +109,6 @@ export function addition(props) {
     let history_calc_A = document.createElement('span')
     history_calc_A.setAttribute('id', 'history_calc_A')
     history_calc_A.innerHTML += his_calc_A
-
-    console.log(typeof his_calc_A)
 
     let icon = document.createElement('i')
     icon.classList.add('ph')
@@ -144,8 +136,6 @@ export function minus(props) {
     history_calc_A.setAttribute('id', 'history_calc_A')
     history_calc_A.innerHTML += his_calc_A
 
-    console.log(typeof his_calc_A)
-
     let icon = document.createElement('i')
     icon.classList.add('ph')
     icon.classList.add('ph-minus')
@@ -171,8 +161,6 @@ export function multiply(props) {
     let history_calc_A = document.createElement('span')
     history_calc_A.setAttribute('id', 'history_calc_A')
     history_calc_A.innerHTML += his_calc_A
-
-    console.log(typeof his_calc_A)
 
     let icon = document.createElement('i')
     icon.classList.add('ph')
@@ -200,8 +188,6 @@ export function divide(props) {
     history_calc_A.setAttribute('id', 'history_calc_A')
     history_calc_A.innerHTML += his_calc_A
 
-    console.log(typeof his_calc_A)
-
     let icon = document.createElement('i')
     icon.classList.add('ph')
     icon.classList.add('ph-divide')
@@ -227,8 +213,6 @@ export function percent(props) {
     let history_calc_A = document.createElement('span')
     history_calc_A.setAttribute('id', 'history_calc_A')
     history_calc_A.innerHTML += his_calc_A
-
-    console.log(typeof his_calc_A)
 
     let icon = document.createElement('i')
     icon.classList.add('ph')
@@ -281,6 +265,7 @@ export function equal(props) {
       default:
         results.innerHTML = ``
     }
+
     addValue = []
     his_calc_A = 0
     his_calc_B = 0
