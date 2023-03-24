@@ -1,6 +1,5 @@
 let addValue = []
 let addAfterComma = []
-let addPercent = 0
 let isComma = false
 let isPercent = false
 let his_calc_A = 0
@@ -337,7 +336,6 @@ export function percent(props) {
     let temp = translateValue.split(',').join('')
     his_calc_A = parseInt(temp) / 100
     isPercent = true
-    addPercent = his_calc_A
 
     let history_calc_A = document.createElement('span')
     history_calc_A.setAttribute('id', 'history_calc_A')
