@@ -1,6 +1,8 @@
 let addValue = []
 let addAfterComma = []
+let addPercent = 0
 let isComma = false
+let isPercent = false
 let his_calc_A = 0
 let his_calc_B = 0
 
@@ -110,39 +112,55 @@ export function setComma(props) {
 export function addition(props) {
   props.addEventListener('click', () => {
     let results = document.querySelector('#total_count')
-    const translateValue = String(addValue)
-    let temp = translateValue.split(',').join('')
 
-    const translateValueComma = String(addAfterComma)
-    let tempComma = translateValueComma.split(',').join('')
+    if (isPercent) {
+      let icon = document.createElement('i')
+      icon.classList.add('ph')
+      icon.classList.add('ph-plus')
+      icon.classList.add('hist')
+      icon.setAttribute('id', 'symbol')
+      
+      let history = document.querySelector('.history')
+      history.append(history_calc_A)
+      history.append(icon)
 
-    if (isComma) {
-      let convertedValue = parseInt(tempComma) / 10
-      his_calc_A = parseFloat(temp) + convertedValue
+      results.innerHTML = ``
+      isPercent = false
     } else {
-      his_calc_A = parseInt(temp)
-    }
+      const translateValue = String(addValue)
+      let temp = translateValue.split(',').join('')
 
-    let history_calc_A = document.createElement('span')
-    history_calc_A.setAttribute('id', 'history_calc_A')
-    history_calc_A.innerHTML += his_calc_A
+      const translateValueComma = String(addAfterComma)
+      let tempComma = translateValueComma.split(',').join('')
 
-    let icon = document.createElement('i')
-    icon.classList.add('ph')
-    icon.classList.add('ph-plus')
-    icon.classList.add('hist')
-    icon.setAttribute('id', 'symbol')
-    
-    let history = document.querySelector('.history')
-    history.append(history_calc_A)
-    history.append(icon)
+      if (isComma) {
+        let convertedValue = parseInt(tempComma) / 10
+        his_calc_A = parseFloat(temp) + convertedValue
+      } else {
+        his_calc_A = parseInt(temp)
+      }
 
-    results.innerHTML = ``
-    addValue = []
+      let history_calc_A = document.createElement('span')
+      history_calc_A.setAttribute('id', 'history_calc_A')
+      history_calc_A.innerHTML += his_calc_A
 
-    if (isComma) {
-      addAfterComma = []
-      isComma = false
+      let icon = document.createElement('i')
+      icon.classList.add('ph')
+      icon.classList.add('ph-plus')
+      icon.classList.add('hist')
+      icon.setAttribute('id', 'symbol')
+      
+      let history = document.querySelector('.history')
+      history.append(history_calc_A)
+      history.append(icon)
+
+      results.innerHTML = ``
+      addValue = []
+
+      if (isComma) {
+        addAfterComma = []
+        isComma = false
+      }
     }
   })
 }
@@ -150,39 +168,55 @@ export function addition(props) {
 export function minus(props) {
   props.addEventListener('click', () => {
     let results = document.querySelector('#total_count')
-    const translateValue = String(addValue)
-    let temp = translateValue.split(',').join('')
 
-    const translateValueComma = String(addAfterComma)
-    let tempComma = translateValueComma.split(',').join('')
+    if (isPercent) {
+      let icon = document.createElement('i')
+      icon.classList.add('ph')
+      icon.classList.add('ph-minus')
+      icon.classList.add('hist')
+      icon.setAttribute('id', 'symbol')
 
-    if (isComma) {
-      let convertedValue = parseInt(tempComma) / 10
-      his_calc_A = parseFloat(temp) + convertedValue
+      let history = document.querySelector('.history')
+      history.append(history_calc_A)
+      history.append(icon)
+
+      results.innerHTML = ``
+      isPercent = false
     } else {
-      his_calc_A = parseInt(temp)
-    }
+      const translateValue = String(addValue)
+      let temp = translateValue.split(',').join('')
 
-    let history_calc_A = document.createElement('span')
-    history_calc_A.setAttribute('id', 'history_calc_A')
-    history_calc_A.innerHTML += his_calc_A
+      const translateValueComma = String(addAfterComma)
+      let tempComma = translateValueComma.split(',').join('')
 
-    let icon = document.createElement('i')
-    icon.classList.add('ph')
-    icon.classList.add('ph-minus')
-    icon.classList.add('hist')
-    icon.setAttribute('id', 'symbol')
-    
-    let history = document.querySelector('.history')
-    history.append(history_calc_A)
-    history.append(icon)
+      if (isComma) {
+        let convertedValue = parseInt(tempComma) / 10
+        his_calc_A = parseFloat(temp) + convertedValue
+      } else {
+        his_calc_A = parseInt(temp)
+      }
 
-    results.innerHTML = ``
-    addValue = []
+      let history_calc_A = document.createElement('span')
+      history_calc_A.setAttribute('id', 'history_calc_A')
+      history_calc_A.innerHTML += his_calc_A
 
-    if (isComma) {
-      addAfterComma = []
-      isComma = false
+      let icon = document.createElement('i')
+      icon.classList.add('ph')
+      icon.classList.add('ph-minus')
+      icon.classList.add('hist')
+      icon.setAttribute('id', 'symbol')
+      
+      let history = document.querySelector('.history')
+      history.append(history_calc_A)
+      history.append(icon)
+
+      results.innerHTML = ``
+      addValue = []
+
+      if (isComma) {
+        addAfterComma = []
+        isComma = false
+      }
     }
   })
 }
@@ -190,39 +224,55 @@ export function minus(props) {
 export function multiply(props) {
   props.addEventListener('click', () => {
     let results = document.querySelector('#total_count')
-    const translateValue = String(addValue)
-    let temp = translateValue.split(',').join('')
 
-    const translateValueComma = String(addAfterComma)
-    let tempComma = translateValueComma.split(',').join('')
+    if (isPercent) {
+      let icon = document.createElement('i')
+      icon.classList.add('ph')
+      icon.classList.add('ph-x')
+      icon.classList.add('hist')
+      icon.setAttribute('id', 'symbol')
 
-    if (isComma) {
-      let convertedValue = parseInt(tempComma) / 10
-      his_calc_A = parseFloat(temp) + convertedValue
+      let history = document.querySelector('.history')
+      history.append(history_calc_A)
+      history.append(icon)
+
+      results.innerHTML = ``
+      isPercent = false
     } else {
-      his_calc_A = parseInt(temp)
-    }
-
-    let history_calc_A = document.createElement('span')
-    history_calc_A.setAttribute('id', 'history_calc_A')
-    history_calc_A.innerHTML += his_calc_A
-
-    let icon = document.createElement('i')
-    icon.classList.add('ph')
-    icon.classList.add('ph-x')
-    icon.classList.add('hist')
-    icon.setAttribute('id', 'symbol')
-    
-    let history = document.querySelector('.history')
-    history.append(history_calc_A)
-    history.append(icon)
-
-    results.innerHTML = ``
-    addValue = []
-    
-    if (isComma) {
-      addAfterComma = []
-      isComma = false
+      const translateValue = String(addValue)
+      let temp = translateValue.split(',').join('')
+  
+      const translateValueComma = String(addAfterComma)
+      let tempComma = translateValueComma.split(',').join('')
+  
+      if (isComma) {
+        let convertedValue = parseInt(tempComma) / 10
+        his_calc_A = parseFloat(temp) + convertedValue
+      } else {
+        his_calc_A = parseInt(temp)
+      }
+  
+      let history_calc_A = document.createElement('span')
+      history_calc_A.setAttribute('id', 'history_calc_A')
+      history_calc_A.innerHTML += his_calc_A
+  
+      let icon = document.createElement('i')
+      icon.classList.add('ph')
+      icon.classList.add('ph-x')
+      icon.classList.add('hist')
+      icon.setAttribute('id', 'symbol')
+      
+      let history = document.querySelector('.history')
+      history.append(history_calc_A)
+      history.append(icon)
+  
+      results.innerHTML = ``
+      addValue = []
+      
+      if (isComma) {
+        addAfterComma = []
+        isComma = false
+      }
     }
   })
 }
@@ -230,36 +280,52 @@ export function multiply(props) {
 export function divide(props) {
   props.addEventListener('click', () => {
     let results = document.querySelector('#total_count')
-    const translateValue = String(addValue)
-    let temp = translateValue.split(',').join('')
 
-    if (isComma) {
-      let convertedValue = parseInt(tempComma) / 10
-      his_calc_A = parseFloat(temp) + convertedValue
+    if (isPercent) {
+      let icon = document.createElement('i')
+      icon.classList.add('ph')
+      icon.classList.add('ph-divide')
+      icon.classList.add('hist')
+      icon.setAttribute('id', 'symbol')
+
+      let history_calc_A = document.createElement('span')
+      history_calc_A.setAttribute('id', 'history_calc_A')
+      history_calc_A.innerHTML += his_calc_A
+
+      results.innerHTML = ``
+      isPercent = false
     } else {
-      his_calc_A = parseInt(temp)
-    }
-
-    let history_calc_A = document.createElement('span')
-    history_calc_A.setAttribute('id', 'history_calc_A')
-    history_calc_A.innerHTML += his_calc_A
-
-    let icon = document.createElement('i')
-    icon.classList.add('ph')
-    icon.classList.add('ph-divide')
-    icon.classList.add('hist')
-    icon.setAttribute('id', 'symbol')
-    
-    let history = document.querySelector('.history')
-    history.append(history_calc_A)
-    history.append(icon)
-
-    results.innerHTML = ``
-    addValue = []
-    
-    if (isComma) {
-      addAfterComma = []
-      isComma = false
+      const translateValue = String(addValue)
+      let temp = translateValue.split(',').join('')
+  
+      if (isComma) {
+        let convertedValue = parseInt(tempComma) / 10
+        his_calc_A = parseFloat(temp) + convertedValue
+      } else {
+        his_calc_A = parseInt(temp)
+      }
+  
+      let history_calc_A = document.createElement('span')
+      history_calc_A.setAttribute('id', 'history_calc_A')
+      history_calc_A.innerHTML += his_calc_A
+  
+      let icon = document.createElement('i')
+      icon.classList.add('ph')
+      icon.classList.add('ph-divide')
+      icon.classList.add('hist')
+      icon.setAttribute('id', 'symbol')
+      
+      let history = document.querySelector('.history')
+      history.append(history_calc_A)
+      history.append(icon)
+  
+      results.innerHTML = ``
+      addValue = []
+      
+      if (isComma) {
+        addAfterComma = []
+        isComma = false
+      }
     }
   })
 }
@@ -269,29 +335,25 @@ export function percent(props) {
     let results = document.querySelector('#total_count')
     const translateValue = String(addValue)
     let temp = translateValue.split(',').join('')
-    his_calc_A = parseInt(temp)
+    his_calc_A = parseInt(temp) / 100
+    isPercent = true
+    addPercent = his_calc_A
 
     let history_calc_A = document.createElement('span')
     history_calc_A.setAttribute('id', 'history_calc_A')
     history_calc_A.innerHTML += his_calc_A
-
-    let icon = document.createElement('i')
-    icon.classList.add('ph')
-    icon.classList.add('ph-percent')
-    icon.classList.add('hist')
-    icon.setAttribute('id', 'symbol')
     
     let history = document.querySelector('.history')
     history.append(history_calc_A)
-    history.append(icon)
 
-    results.innerHTML = his_calc_A / 100
+    results.innerHTML = his_calc_A
     addValue = []
   })
 }
 
 export function equal(props) {
   props.addEventListener('click', () => {
+    console.log('Equals clicked')
     let results = document.querySelector('#total_count')
     const translateValue = String(addValue)
     let temp = translateValue.split(',').join('')
