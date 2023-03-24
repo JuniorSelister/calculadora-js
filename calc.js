@@ -1,4 +1,6 @@
 let addValue = []
+let addAfterComma = []
+let isComma = false
 let his_calc_A = 0
 let his_calc_B = 0
 
@@ -6,7 +8,7 @@ export function zero(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
     results.innerHTML += `0`
-    addValue.push(0)
+    isComma ? addAfterComma.push(0) : addValue.push(0)
   })
 }
 
@@ -14,7 +16,7 @@ export function one(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
     results.innerHTML += `1`
-    addValue.push(1)
+    isComma ? addAfterComma.push(1) : addValue.push(1)
   })
 }
 
@@ -22,7 +24,7 @@ export function two(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
     results.innerHTML += `2`
-    addValue.push(2)
+    isComma ? addAfterComma.push(2) : addValue.push(2)
   })
 }
 
@@ -30,7 +32,7 @@ export function three(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
     results.innerHTML += `3`
-    addValue.push(3)
+    isComma ? addAfterComma.push(3) : addValue.push(3)
   })
 }
 
@@ -38,7 +40,7 @@ export function four(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
     results.innerHTML += `4`
-    addValue.push(4)
+    isComma ? addAfterComma.push(4) : addValue.push(4)
   })
 }
 
@@ -46,7 +48,7 @@ export function five(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
     results.innerHTML += `5`
-    addValue.push(5)
+    isComma ? addAfterComma.push(5) : addValue.push(5)
   })
 }
 
@@ -54,9 +56,7 @@ export function six(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
     results.innerHTML += `6`
-
-    addValue.push(6)
-    console.log(addValue)
+    isComma ? addAfterComma.push(6) : addValue.push(6)
   })
 }
 
@@ -64,14 +64,14 @@ export function seven(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
     results.innerHTML += `7`
-    addValue.push(7)
+    isComma ? addAfterComma.push(7) : addValue.push(7)
   })
 }
 export function eight(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
     results.innerHTML += `8`
-    addValue.push(8)
+    isComma ? addAfterComma.push(8) : addValue.push(8)
   })
 }
 
@@ -79,7 +79,7 @@ export function nine(props) {
   let results = document.querySelector('#total_count')
   props.addEventListener('click', () => {
     results.innerHTML += `9`
-    addValue.push(9)
+    isComma ? addAfterComma.push(9) : addValue.push(9)
   })
 }
 
@@ -100,7 +100,11 @@ export function deleteNumber(props) {
 }
 
 export function setComma(props) {
-  
+  let results = document.querySelector('#total_count')
+  props.addEventListener('click', () => {
+    isComma = true
+    results.innerHTML += `,`
+  })
 }
 
 export function addition(props) {
@@ -108,7 +112,16 @@ export function addition(props) {
     let results = document.querySelector('#total_count')
     const translateValue = String(addValue)
     let temp = translateValue.split(',').join('')
-    his_calc_A = parseInt(temp)
+
+    const translateValueComma = String(addAfterComma)
+    let tempComma = translateValueComma.split(',').join('')
+
+    if (isComma) {
+      let convertedValue = parseInt(tempComma) / 10
+      his_calc_A = parseFloat(temp) + convertedValue
+    } else {
+      his_calc_A = parseInt(temp)
+    }
 
     let history_calc_A = document.createElement('span')
     history_calc_A.setAttribute('id', 'history_calc_A')
@@ -126,6 +139,11 @@ export function addition(props) {
 
     results.innerHTML = ``
     addValue = []
+
+    if (isComma) {
+      addAfterComma = []
+      isComma = false
+    }
   })
 }
 
@@ -134,7 +152,16 @@ export function minus(props) {
     let results = document.querySelector('#total_count')
     const translateValue = String(addValue)
     let temp = translateValue.split(',').join('')
-    his_calc_A = parseInt(temp)
+
+    const translateValueComma = String(addAfterComma)
+    let tempComma = translateValueComma.split(',').join('')
+
+    if (isComma) {
+      let convertedValue = parseInt(tempComma) / 10
+      his_calc_A = parseFloat(temp) + convertedValue
+    } else {
+      his_calc_A = parseInt(temp)
+    }
 
     let history_calc_A = document.createElement('span')
     history_calc_A.setAttribute('id', 'history_calc_A')
@@ -152,6 +179,11 @@ export function minus(props) {
 
     results.innerHTML = ``
     addValue = []
+
+    if (isComma) {
+      addAfterComma = []
+      isComma = false
+    }
   })
 }
 
@@ -160,7 +192,16 @@ export function multiply(props) {
     let results = document.querySelector('#total_count')
     const translateValue = String(addValue)
     let temp = translateValue.split(',').join('')
-    his_calc_A = parseInt(temp)
+
+    const translateValueComma = String(addAfterComma)
+    let tempComma = translateValueComma.split(',').join('')
+
+    if (isComma) {
+      let convertedValue = parseInt(tempComma) / 10
+      his_calc_A = parseFloat(temp) + convertedValue
+    } else {
+      his_calc_A = parseInt(temp)
+    }
 
     let history_calc_A = document.createElement('span')
     history_calc_A.setAttribute('id', 'history_calc_A')
@@ -178,6 +219,11 @@ export function multiply(props) {
 
     results.innerHTML = ``
     addValue = []
+    
+    if (isComma) {
+      addAfterComma = []
+      isComma = false
+    }
   })
 }
 
@@ -186,7 +232,13 @@ export function divide(props) {
     let results = document.querySelector('#total_count')
     const translateValue = String(addValue)
     let temp = translateValue.split(',').join('')
-    his_calc_A = parseInt(temp)
+
+    if (isComma) {
+      let convertedValue = parseInt(tempComma) / 10
+      his_calc_A = parseFloat(temp) + convertedValue
+    } else {
+      his_calc_A = parseInt(temp)
+    }
 
     let history_calc_A = document.createElement('span')
     history_calc_A.setAttribute('id', 'history_calc_A')
@@ -204,6 +256,11 @@ export function divide(props) {
 
     results.innerHTML = ``
     addValue = []
+    
+    if (isComma) {
+      addAfterComma = []
+      isComma = false
+    }
   })
 }
 
@@ -238,7 +295,16 @@ export function equal(props) {
     let results = document.querySelector('#total_count')
     const translateValue = String(addValue)
     let temp = translateValue.split(',').join('')
-    his_calc_B = parseInt(temp)
+    
+    const translateValueComma = String(addAfterComma)
+    let tempComma = translateValueComma.split(',').join('')
+    
+    if (isComma) {
+      let convertedValue = parseInt(tempComma) / 10
+      his_calc_B = parseFloat(temp) + convertedValue
+    } else {
+      his_calc_B = parseInt(temp)
+    }
 
     let history_calc_B = document.createElement('span')
     history_calc_B.setAttribute('id', 'history_calc_B')
@@ -271,6 +337,12 @@ export function equal(props) {
     }
 
     addValue = []
+    
+    if (isComma) {
+      addAfterComma = []
+      isComma = false
+    }
+
     his_calc_A = 0
     his_calc_B = 0
   })
